@@ -114,6 +114,17 @@ void NeuralNet::backprop(const vector<double> &targetedValues)
     
 }
 
+double NeuralNet::softmax(vector<double> &outputValues) {
+    double maximum = outputValues[0], denominator = 0, current = outputValues[0];
+    for(vector<double>::iterator it = outputValues.begin(); it != outputValues.end(); ++it) {
+        current = *it;
+        if(maximum < current)
+            maximum = current;
+        denominator += exp(current);
+    }
+    return exp(maximum) / denominator;
+}
+
 NeuralNet::NeuralNet(vector <unsigned> &Constructoptions)
 {
     unsigned numLayers = Constructoptions.size();
