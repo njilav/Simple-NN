@@ -42,6 +42,7 @@ public:
     
     void fforward(const vector<double> &inputValues);
     void backprop(const vector<double> &targetedValues);
+    double softmax(vector<double> &outputValues);
     void retrieveResults(vector<double> &retriveValues) const;
     double getRecentAverageError(void) const { return recentAverageNetError; }
 };
